@@ -10,6 +10,12 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: NetworkImageView!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+
+    @IBOutlet weak var altLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
 
     var comic: RelevantComic?
 
@@ -22,6 +28,10 @@ class DetailViewController: UIViewController {
             UIBarButtonItem(image: UIImage(systemName: "safari"), style: .plain, target: self, action: #selector(detailButtonTapped)),
 //            UIBarButtonItem(image: UIImage(systemName: "suit.heart"), style: .plain, target: self, action: #selector(detailButtonTapped))
         ]
+
+        scrollView.maximumZoomScale = 10.0
+        scrollView.minimumZoomScale = 1.0
+        scrollView.delegate = self
 
         setViewData()
     }
@@ -37,6 +47,9 @@ class DetailViewController: UIViewController {
 
         self.title = comic.title
         imageView.downloadImage(fromURL: comic.image)
+        idLabel.text = "#\(comic.number)"
+        dateLabel.text = "\(comic.date)"
+        altLabel.text = comic.titletext
     }
 
     @objc func detailButtonTapped() {
@@ -44,6 +57,11 @@ class DetailViewController: UIViewController {
         vc.setviewData(comic: comic)
 
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
 
+extension DetailViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
     }
 }
