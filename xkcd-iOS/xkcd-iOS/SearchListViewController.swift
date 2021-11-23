@@ -38,7 +38,11 @@ class SearchListViewController: UIViewController {
                 if let comic = comic {
                     let relevantComic = convertToRelevantComic(comic: comic)    // convert the data type for CollectionView datasource.
                     comickList = [relevantComic]
-                    tableView.reloadData()
+                    if !comickList.isEmpty {
+                        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    }
+                    tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+
                 }
                 // TODO: Not found view
                 // TODO: loading
@@ -57,7 +61,11 @@ class SearchListViewController: UIViewController {
 
                 if let comic = response {
                     comickList = comic.results
-                    tableView.reloadData()
+
+                    if !comickList.isEmpty {
+                        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    }
+                    tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
                 }
                 // TODO: Not found
                 // TODO: ローディング
@@ -72,7 +80,7 @@ class SearchListViewController: UIViewController {
         return RelevantComic(number: comic.num,
                              title: comic.title,
                              titletext: comic.alt,
-                             url: "\(Environment.comicUrl)/\(comic.num)",
+                             url: "\(Environment.comicUrlString)/\(comic.num)",
                              image: comic.img,
                              date: "\(comic.year)-\(comic.month)-\(comic.day)")
 
@@ -114,7 +122,5 @@ extension SearchListViewController: UISearchBarDelegate {
 
         searchBar.resignFirstResponder()
     }
-
-
 }
 

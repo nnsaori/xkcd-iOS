@@ -25,6 +25,14 @@
 		2244E09E274C993900D70C0E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E09D274C993900D70C0E /* WebViewController.swift */; };
 		2244E0A0274CA3F700D70C0E /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E09F274CA3F700D70C0E /* Environment.swift */; };
 		2244E0A2274CB68900D70C0E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0A1274CB68900D70C0E /* SearchTableViewCell.swift */; };
+		2244E0A4274D7EBA00D70C0E /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0A3274D7EBA00D70C0E /* MockURLProtocol.swift */; };
+		2244E0A6274D7F0800D70C0E /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0A5274D7F0800D70C0E /* MockResponse.swift */; };
+		2244E0A7274D838100D70C0E /* ComicsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E099274C8BF800D70C0E /* ComicsError.swift */; };
+		2244E0A8274D93A100D70C0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E08D274C88C600D70C0E /* NetworkManager.swift */; };
+		2244E0A9274D96E400D70C0E /* XkcdComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E093274C89EB00D70C0E /* XkcdComic.swift */; };
+		2244E0AA274D96EC00D70C0E /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E09F274CA3F700D70C0E /* Environment.swift */; };
+		2244E0AB274D96F500D70C0E /* RelevantComicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E08F274C897C00D70C0E /* RelevantComicResponse.swift */; };
+		2244E0AC274D96FE00D70C0E /* RelevantComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E091274C899000D70C0E /* RelevantComic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +75,8 @@
 		2244E09D274C993900D70C0E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2244E09F274CA3F700D70C0E /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		2244E0A1274CB68900D70C0E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		2244E0A3274D7EBA00D70C0E /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		2244E0A5274D7F0800D70C0E /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				2244E070274C87A700D70C0E /* xkcd_iOSTests.swift */,
+				2244E0A5274D7F0800D70C0E /* MockResponse.swift */,
+				2244E0A3274D7EBA00D70C0E /* MockURLProtocol.swift */,
 			);
 			path = "xkcd-iOSTests";
 			sourceTree = "<group>";
@@ -320,7 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2244E0A8274D93A100D70C0E /* NetworkManager.swift in Sources */,
+				2244E0AB274D96F500D70C0E /* RelevantComicResponse.swift in Sources */,
+				2244E0A7274D838100D70C0E /* ComicsError.swift in Sources */,
+				2244E0A6274D7F0800D70C0E /* MockResponse.swift in Sources */,
+				2244E0AA274D96EC00D70C0E /* Environment.swift in Sources */,
 				2244E071274C87A700D70C0E /* xkcd_iOSTests.swift in Sources */,
+				2244E0A4274D7EBA00D70C0E /* MockURLProtocol.swift in Sources */,
+				2244E0AC274D96FE00D70C0E /* RelevantComic.swift in Sources */,
+				2244E0A9274D96E400D70C0E /* XkcdComic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,8 +517,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,8 +546,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

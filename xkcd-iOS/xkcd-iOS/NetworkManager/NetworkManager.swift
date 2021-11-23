@@ -12,20 +12,17 @@ class NetworkManager {
     let decoder = JSONDecoder()
 
     let cache = NSCache<NSString, UIImage>()
+    var session: URLSession
 
 
     private init() {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dateDecodingStrategy = .iso8601
+        session = URLSession.shared
     }
 
     func getCurrentComics() async throws -> XkcdComic? {
-        let endpoint = Environment.currentComicUrl
-
-        guard let url = URL(string: endpoint) else {
-            throw ComicsError.invalidUrl
-        }
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await session.data(from: Environment.currentComicUrl)
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw ComicsError.invalidResponse
         }
@@ -38,13 +35,8 @@ class NetworkManager {
     }
 
     func getComics(keyword: String?) async throws -> RelevantComicResponse? {
-        let endpoint = Environment.searchComicUrl
 
-        guard let url = URL(string: endpoint) else {
-            throw ComicsError.invalidUrl
-        }
-
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: Environment.searchComicUrl)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         if let keyword = keyword, keyword.isEmpty == false {
@@ -53,7 +45,7 @@ class NetworkManager {
                 request.httpBody = postData
             }
 
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await session.data(for: request)
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw ComicsError.invalidResponse
         }

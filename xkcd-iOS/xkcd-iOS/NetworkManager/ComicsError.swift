@@ -7,7 +7,6 @@
 
 
 enum ComicsError: String, Error {
-    case invalidUrl = "Invalid request. Please try again"
     case invalidResponse = "Invalid response from the server. Please try again."
     case invalidData = "The data received from the server was invalid. Please try again."
 }

@@ -31,7 +31,7 @@ class WebViewController: UIViewController {
             return
         }
         let pamam = comic.title.replacingOccurrences(of: " ", with: "_")
-        guard let url = URL(string: "\(Environment.detailWebUrl)/\(pamam)") else {
+        guard let url = URL(string: "\(Environment.detailWebUrlString)/\(pamam)") else {
             return
         }
 
@@ -50,7 +50,7 @@ class WebViewController: UIViewController {
         }
 
         let pamam = comic.title.replacingOccurrences(of: " ", with: "_")
-        guard let url = URL(string: "\(Environment.detailWebUrl)/\(pamam)") else {
+        guard let url = URL(string: "\(Environment.detailWebUrlString)/\(pamam)") else {
             return
         }
 
