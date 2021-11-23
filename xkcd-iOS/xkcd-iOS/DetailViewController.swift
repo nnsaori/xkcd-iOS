@@ -9,7 +9,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-
     @IBOutlet weak var imageView: NetworkImageView!
 
     var comic: RelevantComic?
@@ -18,7 +17,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Detail", style: .plain, target: self, action: #selector(detailButtonTapped))
+
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "safari"), style: .plain, target: self, action: #selector(detailButtonTapped)),
+//            UIBarButtonItem(image: UIImage(systemName: "suit.heart"), style: .plain, target: self, action: #selector(detailButtonTapped))
+        ]
 
         setViewData()
     }
