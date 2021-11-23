@@ -33,6 +33,7 @@
 		2244E0AA274D96EC00D70C0E /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E09F274CA3F700D70C0E /* Environment.swift */; };
 		2244E0AB274D96F500D70C0E /* RelevantComicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E08F274C897C00D70C0E /* RelevantComicResponse.swift */; };
 		2244E0AC274D96FE00D70C0E /* RelevantComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E091274C899000D70C0E /* RelevantComic.swift */; };
+		2244E0AE274DA40800D70C0E /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0AD274DA40800D70C0E /* NetworkImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		2244E0A1274CB68900D70C0E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		2244E0A3274D7EBA00D70C0E /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		2244E0A5274D7F0800D70C0E /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
+		2244E0AD274DA40800D70C0E /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				2244E08D274C88C600D70C0E /* NetworkManager.swift */,
+				2244E0AD274DA40800D70C0E /* NetworkImageView.swift */,
 				2244E099274C8BF800D70C0E /* ComicsError.swift */,
 			);
 			path = NetworkManager;
@@ -316,6 +319,7 @@
 				2244E08E274C88C600D70C0E /* NetworkManager.swift in Sources */,
 				2244E0A0274CA3F700D70C0E /* Environment.swift in Sources */,
 				2244E09E274C993900D70C0E /* WebViewController.swift in Sources */,
+				2244E0AE274DA40800D70C0E /* NetworkImageView.swift in Sources */,
 				2244E05A274C87A500D70C0E /* AppDelegate.swift in Sources */,
 				2244E09A274C8BF800D70C0E /* ComicsError.swift in Sources */,
 				2244E094274C89EB00D70C0E /* XkcdComic.swift in Sources */,

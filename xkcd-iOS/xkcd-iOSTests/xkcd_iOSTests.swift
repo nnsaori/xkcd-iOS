@@ -18,6 +18,81 @@ class xkcd_iOSTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    // getCurrentComics() - Success
+    func testGetCurrentComicsSuccess() async throws {
+        MockURLProtocol.requestHandler = {request in
+            let mockData = MockResponse.currentComicSuccessMockData.data(using: .utf8)!
+            let response = HTTPURLResponse.init(url: request.url!, statusCode: 200, httpVersion: "2.0", headerFields: nil)!
+            return (response, mockData)
+        }
+
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [MockURLProtocol.self]
+        let urlSession = URLSession(configuration: configuration)
+
+        let net = NetworkManager.shared
+        net.session = urlSession
+
+        Task {
+            do {
+                let comic = try await net.getCurrentComics()
+                XCTAssertNotNil(comic)
+            } catch {
+                XCTFail("should be Success")
+            }
+        }
+    }
+
+    // getCurrentComics() - Error statusCode 500
+    func testGetCurrentComicsStatusCodeError() async throws {
+        MockURLProtocol.requestHandler = {request in
+            let mockData = MockResponse.currentComicSuccessMockData.data(using: .utf8)!
+            let response = HTTPURLResponse.init(url: request.url!, statusCode: 500, httpVersion: "2.0", headerFields: nil)!
+            return (response, mockData)
+        }
+
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [MockURLProtocol.self]
+        let urlSession = URLSession(configuration: configuration)
+
+        let net = NetworkManager.shared
+        net.session = urlSession
+
+        Task {
+            do {
+                let _ = try await net.getCurrentComics()
+            } catch {
+                let e = error as! ComicsError
+                XCTAssertEqual(e.rawValue, ComicsError.invalidResponse.rawValue)
+            }
+        }
+    }
+
+    // getCurrentComics() - Error decode faild
+    func testGetCurrentComicsDecoderror() async throws {
+        MockURLProtocol.requestHandler = {request in
+            let mockData = MockResponse.searchComicSuccessMockData.data(using: .utf8)!
+            let response = HTTPURLResponse.init(url: request.url!, statusCode: 200, httpVersion: "2.0", headerFields: nil)!
+            return (response, mockData)
+        }
+
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [MockURLProtocol.self]
+        let urlSession = URLSession(configuration: configuration)
+
+        let net = NetworkManager.shared
+        net.session = urlSession
+
+        Task {
+            do {
+                let _ = try await net.getCurrentComics()
+            } catch {
+                let e = error as! ComicsError
+                XCTAssertEqual(e.rawValue, ComicsError.invalidResponse.rawValue)
+            }
+        }
+    }
+
     // getComics(keyword) - Success
     func testSearchComicSuccess() async throws {
         MockURLProtocol.requestHandler = {request in
@@ -89,20 +164,8 @@ class xkcd_iOSTests: XCTestCase {
                 let _ = try await net.getComics(keyword: "test")
             } catch {
                 let e = error as! ComicsError
-                XCTAssertEqual(e.rawValue, ComicsError.invalidData.rawValue)
+                XCTAssertEqual(e.rawValue, ComicsError.invalidResponse.rawValue)
             }
-        }
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
         }
     }
 

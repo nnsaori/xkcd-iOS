@@ -30,7 +30,7 @@ class NetworkManager {
         do {
             return try decoder.decode(XkcdComic.self, from: data)
         } catch {
-            throw ComicsError.invalidData
+            throw ComicsError.invalidResponse
         }
     }
 
@@ -56,7 +56,7 @@ class NetworkManager {
         do {
             return try decoder.decode(RelevantComicResponse.self, from: data)
         } catch {
-            throw ComicsError.invalidData
+            throw ComicsError.invalidResponse
         }
     }
 
@@ -67,29 +67,12 @@ class NetworkManager {
         guard let url = URL(string: urlString) else { return nil }
 
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let (data, _) = try await session.data(from: url)
             guard let image = UIImage(data: data) else { return nil }
             cache.setObject(image, forKey: cacheKey)
             return image
         } catch {
             return nil
         }
-    }
-}
-
-class NetworkImageView: UIImageView {
-
-    var placeholderImage: UIImage {
-        let image = UIImage()
-        image.withTintColor(.systemGray)
-        return image
-    }
-
-    func downloadImage(fromURL url: String?) {
-        guard let url = url else {
-            return
-        }
-
-        Task { image = await NetworkManager.shared.downloadImage(from: url) ?? placeholderImage }
     }
 }
