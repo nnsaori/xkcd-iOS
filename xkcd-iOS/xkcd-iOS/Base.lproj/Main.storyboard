@@ -95,6 +95,78 @@
             </objects>
             <point key="canvasLocation" x="-10.144927536231885" y="57.589285714285708"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="fAm-5X-CkH">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKP-Mx-FrG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DLn-wE-bur" customClass="DetailViewController" customModule="xkcd_commic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ReI-DD-cSs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsa-7z-BeY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUZ-L3-UFo">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1096"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sDl-s7-IDl" customClass="NetworkImageView" customModule="xkcd_commic" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="400" id="Eo7-7P-xVv"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="sDl-s7-IDl" secondAttribute="trailing" id="Hsg-fX-qbG"/>
+                                            <constraint firstAttribute="height" constant="1096" id="aXQ-Kl-cxW"/>
+                                            <constraint firstItem="sDl-s7-IDl" firstAttribute="leading" secondItem="rUZ-L3-UFo" secondAttribute="leading" id="c6u-oA-eT9"/>
+                                            <constraint firstItem="sDl-s7-IDl" firstAttribute="top" secondItem="rUZ-L3-UFo" secondAttribute="top" id="xiW-I1-dU6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rUZ-L3-UFo" firstAttribute="bottom" secondItem="2Ck-0d-ipj" secondAttribute="bottom" constant="896" id="2UH-C3-okv"/>
+                                    <constraint firstItem="rUZ-L3-UFo" firstAttribute="centerX" secondItem="fsa-7z-BeY" secondAttribute="centerX" id="7DF-XK-so7"/>
+                                    <constraint firstItem="rUZ-L3-UFo" firstAttribute="width" secondItem="2Ck-0d-ipj" secondAttribute="width" id="8WE-qh-xv5"/>
+                                    <constraint firstItem="rUZ-L3-UFo" firstAttribute="top" secondItem="2Ck-0d-ipj" secondAttribute="top" id="Aik-kb-ilP"/>
+                                    <constraint firstItem="rUZ-L3-UFo" firstAttribute="leading" secondItem="2Ck-0d-ipj" secondAttribute="leading" id="SwZ-1S-8Ip"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="2Ck-0d-ipj"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="UGQ-sV-HLe"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Xq-9A-ys1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Xq-9A-ys1" firstAttribute="trailing" secondItem="fsa-7z-BeY" secondAttribute="trailing" id="ERZ-c0-DIT"/>
+                            <constraint firstItem="fsa-7z-BeY" firstAttribute="top" secondItem="6Xq-9A-ys1" secondAttribute="top" id="JvY-8n-kTU"/>
+                            <constraint firstItem="6Xq-9A-ys1" firstAttribute="bottom" secondItem="fsa-7z-BeY" secondAttribute="bottom" id="Vl4-pX-eaj"/>
+                            <constraint firstItem="fsa-7z-BeY" firstAttribute="leading" secondItem="6Xq-9A-ys1" secondAttribute="leading" id="y6g-UL-Tbe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="sDl-s7-IDl" id="Hma-gE-NbD"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-10" y="806"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="v5z-Sw-bJq">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gg0-wz-g1X" customClass="WebViewController" customModule="xkcd_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WYg-rl-0rp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3Bf-Uc-B5n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQ5-q0-Ya5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924.63768115942037" y="811.60714285714278"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

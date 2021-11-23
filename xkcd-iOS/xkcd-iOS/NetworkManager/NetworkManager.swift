@@ -13,9 +13,6 @@ class NetworkManager {
 
     let cache = NSCache<NSString, UIImage>()
 
-    static let comicUrl = "https://xkcd.com"
-    static let currentComicUrl = "\(comicUrl)/info.0.json"
-    static let searchComicUrl = "https://relevant-xkcd-backend.herokuapp.com/search"
 
     private init() {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -23,7 +20,7 @@ class NetworkManager {
     }
 
     func getCurrentComics() async throws -> XkcdComic? {
-        let endpoint = NetworkManager.currentComicUrl
+        let endpoint = Environment.currentComicUrl
 
         guard let url = URL(string: endpoint) else {
             throw ComicsError.invalidUrl
@@ -41,7 +38,7 @@ class NetworkManager {
     }
 
     func getComics(keyword: String?) async throws -> RelevantComicResponse? {
-        let endpoint = NetworkManager.searchComicUrl
+        let endpoint = Environment.searchComicUrl
 
         guard let url = URL(string: endpoint) else {
             throw ComicsError.invalidUrl

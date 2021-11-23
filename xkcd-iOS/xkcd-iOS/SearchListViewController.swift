@@ -53,7 +53,7 @@ class SearchListViewController: UIViewController {
         return RelevantComic(number: comic.num,
                              title: comic.title,
                              titletext: comic.alt,
-                             url: "\(NetworkManager.comicUrl)/\(comic.num)",
+                             url: "\(Environment.comicUrl)/\(comic.num)",
                              image: comic.img,
                              date: "\(comic.year)-\(comic.month)-\(comic.day)")
 
@@ -75,7 +75,10 @@ extension SearchListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: detail view
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
+        vc.setViewData(comic: self.comickList[indexPath.row])
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
