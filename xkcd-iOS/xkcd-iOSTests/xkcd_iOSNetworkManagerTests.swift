@@ -1,5 +1,5 @@
 //
-//  xkcd_iOSTests.swift
+//  xkcd_iOSNetworkManagerTests.swift
 //  xkcd-iOSTests
 //
 //  Created by Saori Kurimoto on 2021/11/22.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import xkcd_iOS
 
-class xkcd_iOSTests: XCTestCase {
+class xkcd_iOSNetworkManagerTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -168,5 +168,4 @@ class xkcd_iOSTests: XCTestCase {
             }
         }
     }
-
 }

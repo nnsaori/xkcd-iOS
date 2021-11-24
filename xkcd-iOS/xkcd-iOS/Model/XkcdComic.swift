@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XkcdComic: Codable {  // xkcd.com Response
+struct XkcdComic: Codable {  // xkcd.com Response
     let month: String
     let num: Int
     let link: String

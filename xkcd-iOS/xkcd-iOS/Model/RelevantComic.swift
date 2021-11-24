@@ -14,5 +14,6 @@ struct RelevantComic: Codable {    // relevant-xkcd-backend.herokuapp.com Respon
     let url: String
     let image: String
     let date: String
+    var comicImage: Data? =  nil
 }
 

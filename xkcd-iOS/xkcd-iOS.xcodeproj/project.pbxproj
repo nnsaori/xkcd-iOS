@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220C46B4274DF43A001161D9 /* xkcd_iOSFavoriteManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220C46B3274DF43A001161D9 /* xkcd_iOSFavoriteManagerTests.swift */; };
+		220C46B5274DF51A001161D9 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0AF274DA6E700D70C0E /* FavoriteManager.swift */; };
 		2244E05A274C87A500D70C0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E059274C87A500D70C0E /* AppDelegate.swift */; };
 		2244E05C274C87A500D70C0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E05B274C87A500D70C0E /* SceneDelegate.swift */; };
 		2244E061274C87A500D70C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2244E05F274C87A500D70C0E /* Main.storyboard */; };
 		2244E063274C87A600D70C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2244E062274C87A600D70C0E /* Assets.xcassets */; };
 		2244E066274C87A600D70C0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2244E064274C87A600D70C0E /* LaunchScreen.storyboard */; };
-		2244E071274C87A700D70C0E /* xkcd_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E070274C87A700D70C0E /* xkcd_iOSTests.swift */; };
+		2244E071274C87A700D70C0E /* xkcd_iOSNetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E070274C87A700D70C0E /* xkcd_iOSNetworkManagerTests.swift */; };
 		2244E07B274C87A700D70C0E /* xkcd_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E07A274C87A700D70C0E /* xkcd_iOSUITests.swift */; };
 		2244E07D274C87A700D70C0E /* xkcd_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E07C274C87A700D70C0E /* xkcd_iOSUITestsLaunchTests.swift */; };
 		2244E08A274C884400D70C0E /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E089274C884400D70C0E /* SearchListViewController.swift */; };
@@ -34,6 +36,7 @@
 		2244E0AB274D96F500D70C0E /* RelevantComicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E08F274C897C00D70C0E /* RelevantComicResponse.swift */; };
 		2244E0AC274D96FE00D70C0E /* RelevantComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E091274C899000D70C0E /* RelevantComic.swift */; };
 		2244E0AE274DA40800D70C0E /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0AD274DA40800D70C0E /* NetworkImageView.swift */; };
+		2244E0B0274DA6E700D70C0E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0AF274DA6E700D70C0E /* FavoriteManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220C46B3274DF43A001161D9 /* xkcd_iOSFavoriteManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xkcd_iOSFavoriteManagerTests.swift; sourceTree = "<group>"; };
 		2244E056274C87A500D70C0E /* xkcd-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xkcd-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2244E059274C87A500D70C0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2244E05B274C87A500D70C0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		2244E065274C87A600D70C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2244E067274C87A600D70C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2244E06C274C87A700D70C0E /* xkcd-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xkcd-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2244E070274C87A700D70C0E /* xkcd_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xkcd_iOSTests.swift; sourceTree = "<group>"; };
+		2244E070274C87A700D70C0E /* xkcd_iOSNetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xkcd_iOSNetworkManagerTests.swift; sourceTree = "<group>"; };
 		2244E076274C87A700D70C0E /* xkcd-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xkcd-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2244E07A274C87A700D70C0E /* xkcd_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xkcd_iOSUITests.swift; sourceTree = "<group>"; };
 		2244E07C274C87A700D70C0E /* xkcd_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xkcd_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		2244E0A3274D7EBA00D70C0E /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		2244E0A5274D7F0800D70C0E /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		2244E0AD274DA40800D70C0E /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
+		2244E0AF274DA6E700D70C0E /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +141,7 @@
 				2244E09B274C8D5A00D70C0E /* DetailViewController.swift */,
 				2244E09D274C993900D70C0E /* WebViewController.swift */,
 				2244E09F274CA3F700D70C0E /* Environment.swift */,
+				2244E099274C8BF800D70C0E /* ComicsError.swift */,
 				2244E08C274C88B600D70C0E /* NetworkManager */,
 				2244E08B274C888900D70C0E /* Model */,
 				2244E05F274C87A500D70C0E /* Main.storyboard */,
@@ -149,7 +155,8 @@
 		2244E06F274C87A700D70C0E /* xkcd-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				2244E070274C87A700D70C0E /* xkcd_iOSTests.swift */,
+				2244E070274C87A700D70C0E /* xkcd_iOSNetworkManagerTests.swift */,
+				220C46B3274DF43A001161D9 /* xkcd_iOSFavoriteManagerTests.swift */,
 				2244E0A5274D7F0800D70C0E /* MockResponse.swift */,
 				2244E0A3274D7EBA00D70C0E /* MockURLProtocol.swift */,
 			);
@@ -180,7 +187,7 @@
 			children = (
 				2244E08D274C88C600D70C0E /* NetworkManager.swift */,
 				2244E0AD274DA40800D70C0E /* NetworkImageView.swift */,
-				2244E099274C8BF800D70C0E /* ComicsError.swift */,
+				2244E0AF274DA6E700D70C0E /* FavoriteManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -317,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2244E08E274C88C600D70C0E /* NetworkManager.swift in Sources */,
+				2244E0B0274DA6E700D70C0E /* FavoriteManager.swift in Sources */,
 				2244E0A0274CA3F700D70C0E /* Environment.swift in Sources */,
 				2244E09E274C993900D70C0E /* WebViewController.swift in Sources */,
 				2244E0AE274DA40800D70C0E /* NetworkImageView.swift in Sources */,
@@ -337,11 +345,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2244E0A8274D93A100D70C0E /* NetworkManager.swift in Sources */,
+				220C46B4274DF43A001161D9 /* xkcd_iOSFavoriteManagerTests.swift in Sources */,
 				2244E0AB274D96F500D70C0E /* RelevantComicResponse.swift in Sources */,
 				2244E0A7274D838100D70C0E /* ComicsError.swift in Sources */,
 				2244E0A6274D7F0800D70C0E /* MockResponse.swift in Sources */,
+				220C46B5274DF51A001161D9 /* FavoriteManager.swift in Sources */,
 				2244E0AA274D96EC00D70C0E /* Environment.swift in Sources */,
-				2244E071274C87A700D70C0E /* xkcd_iOSTests.swift in Sources */,
+				2244E071274C87A700D70C0E /* xkcd_iOSNetworkManagerTests.swift in Sources */,
 				2244E0A4274D7EBA00D70C0E /* MockURLProtocol.swift in Sources */,
 				2244E0AC274D96FE00D70C0E /* RelevantComic.swift in Sources */,
 				2244E0A9274D96E400D70C0E /* XkcdComic.swift in Sources */,
