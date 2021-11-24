@@ -7,40 +7,43 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, ErrorDialogViewController {
 
     @IBOutlet weak var imageView: NetworkImageView!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
 
+    @IBOutlet weak var favoriteImageView: UIImageView!
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var altLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+
+    let favoriteOffimage = UIImage(systemName: "suit.heart")
+    let favoriteOnimage = UIImage(systemName: "suit.heart.fill")
 
     var comic: RelevantComic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.prefersLargeTitles = true
-
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: "safari"), style: .plain, target: self, action: #selector(detailButtonTapped)),
-//            UIBarButtonItem(image: UIImage(systemName: "suit.heart"), style: .plain, target: self, action: #selector(detailButtonTapped))
+            UIBarButtonItem(image: UIImage(systemName: "safari"), style: .plain, target: self, action: #selector(detailButtonTapped))
         ]
 
         scrollView.maximumZoomScale = 10.0
         scrollView.minimumZoomScale = 1.0
         scrollView.delegate = self
 
-        setViewData()
+        loadViewData()
+        loadFavoriteData()
     }
 
     func setViewData(comic: RelevantComic?) {
         self.comic = comic
     }
 
-    private func setViewData() {
+    private func loadViewData() {
         guard let comic = comic else {
             return
         }
@@ -50,6 +53,61 @@ class DetailViewController: UIViewController {
         idLabel.text = "#\(comic.number)"
         dateLabel.text = "\(comic.date)"
         altLabel.text = comic.titletext
+    }
+
+    private func loadFavoriteData() {
+        guard let comic = comic else {
+            return
+        }
+
+        Task {
+            do {
+                let favorites = try await FavoriteManager().getFavorites().compactMap{ $0 }
+
+                if favorites.contains(where: { $0.number == comic.number }) {
+                    favoriteImageView.image = favoriteOnimage
+                } else {
+                    favoriteImageView.image = favoriteOffimage
+                }
+            } catch {
+                showErrorDialog(title: "Error", error: error) { }
+            }
+        }
+    }
+
+    @IBAction func favoriteButtonTapped(_ sender: UIButton) {
+        guard let comic = comic else {
+            return
+        }
+
+        favoriteButton.isEnabled = false
+
+        switch favoriteImageView.image {
+        case favoriteOnimage:
+            Task {
+                do {
+                    try await FavoriteManager().remove(comic: comic)
+                    favoriteImageView.image = favoriteOffimage
+                    favoriteButton.isEnabled = true
+                } catch {
+                    showErrorDialog(title: "Error", error: error) { }
+                }
+            }
+
+        case favoriteOffimage:
+            Task {
+                do {
+                    try await FavoriteManager().add(comic: comic)
+                    favoriteImageView.image = favoriteOnimage
+                    favoriteButton.isEnabled = true
+                } catch {
+                    showErrorDialog(title: "Error", error: error) { }
+                }
+            }
+
+        default:
+            break
+        }
     }
 
     @objc func detailButtonTapped() {

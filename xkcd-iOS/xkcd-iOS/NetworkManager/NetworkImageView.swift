@@ -20,6 +20,16 @@ class NetworkImageView: UIImageView {
             return
         }
 
-        Task { image = await NetworkManager.shared.downloadImage(from: url) ?? placeholderImage }
+        Task {
+            do {
+                let favorites = try await FavoriteManager().getFavorites().compactMap { $0 }
+                if let comics = favorites.filter({ $0.image == url }).first, let imageData = comics.comicImage {
+                    image = UIImage(data: imageData)
+                } else {
+                    image = await NetworkManager.shared.downloadImage(from: url) ?? placeholderImage
+                }
+            } catch {
+            }
+        }
     }
 }

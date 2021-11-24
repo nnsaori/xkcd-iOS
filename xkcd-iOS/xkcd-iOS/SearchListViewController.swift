@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchListViewController: UIViewController {
+class SearchListViewController: UIViewController, ErrorDialogViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -22,7 +22,9 @@ class SearchListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.text.square"), style: .plain, target: self, action: #selector(loadFavorite))
         self.title = "xkcd comic"
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 200
@@ -39,21 +41,20 @@ class SearchListViewController: UIViewController {
                     let relevantComic = convertToRelevantComic(comic: comic)    // convert the data type for CollectionView datasource.
                     comickList = [relevantComic]
                     if !comickList.isEmpty {
+                        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
                         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    } else {
+                        tableView.reloadData()
                     }
-                    tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-
                 }
-                // TODO: Not found view
-                // TODO: loading
             } catch {
                 print(error.localizedDescription)
 
-                // TODO: ローディング
-                // TODO: アラート
+                showErrorDialog(title: "Error", error: error) { }
             }
         }
     }
+    
     private func loadComics(keyword: String?) {
         Task {
             do {
@@ -63,16 +64,16 @@ class SearchListViewController: UIViewController {
                     comickList = comic.results
 
                     if !comickList.isEmpty {
+                        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
                         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                    } else {
+                        tableView.reloadData()
                     }
-                    tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
                 }
-                // TODO: Not found
-                // TODO: ローディング
+            } catch {
                 print(error.localizedDescription)
 
-                // TODO: ローディング
-                // TODO: アラート
+                showErrorDialog(title: "Error", error: error) { }
             }
         }
     }
@@ -84,6 +85,25 @@ class SearchListViewController: UIViewController {
                              image: comic.img,
                              date: "\(comic.year)-\(comic.month)-\(comic.day)")
 
+    }
+
+    @objc func loadFavorite() {
+        searchBar.text = ""
+
+        Task {
+            do {
+                let favorites = try await FavoriteManager().getFavorites()
+                comickList = favorites
+                if !comickList.isEmpty {
+                    tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+                    tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                } else {
+                    tableView.reloadData()
+                }
+            } catch {
+                showErrorDialog(title: "Error", error: error) { }
+            }
+        }
     }
 }
 
