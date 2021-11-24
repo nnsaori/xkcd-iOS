@@ -86,7 +86,7 @@ class DetailViewController: UIViewController, ErrorDialogViewController {
         case favoriteOnimage:
             Task {
                 do {
-                    try await FavoriteManager().remove(comic: comic)
+                    let _ = try await FavoriteManager().remove(comic: comic)
                     favoriteImageView.image = favoriteOffimage
                     favoriteButton.isEnabled = true
                 } catch {
@@ -97,7 +97,7 @@ class DetailViewController: UIViewController, ErrorDialogViewController {
         case favoriteOffimage:
             Task {
                 do {
-                    try await FavoriteManager().add(comic: comic)
+                    let _ = try await FavoriteManager().add(comic: comic)
                     favoriteImageView.image = favoriteOnimage
                     favoriteButton.isEnabled = true
                 } catch {

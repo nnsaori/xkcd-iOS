@@ -37,7 +37,7 @@
 		2244E0AC274D96FE00D70C0E /* RelevantComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E091274C899000D70C0E /* RelevantComic.swift */; };
 		2244E0AE274DA40800D70C0E /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0AD274DA40800D70C0E /* NetworkImageView.swift */; };
 		2244E0B0274DA6E700D70C0E /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0AF274DA6E700D70C0E /* FavoriteManager.swift */; };
-		2244E0B2274DA7C100D70C0E /* ErrorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0B1274DA7C100D70C0E /* ErrorDialog.swift */; };
+		2244E0B2274DA7C100D70C0E /* ErrorDialog+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2244E0B1274DA7C100D70C0E /* ErrorDialog+UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,7 @@
 		2244E0A5274D7F0800D70C0E /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		2244E0AD274DA40800D70C0E /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 		2244E0AF274DA6E700D70C0E /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
-		2244E0B1274DA7C100D70C0E /* ErrorDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialog.swift; sourceTree = "<group>"; };
+		2244E0B1274DA7C100D70C0E /* ErrorDialog+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorDialog+UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +113,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		220C46B7274ED9EF001161D9 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				2244E0B1274DA7C100D70C0E /* ErrorDialog+UIViewController.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		220C46B8274EDA0D001161D9 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2244E09F274CA3F700D70C0E /* Environment.swift */,
+				2244E099274C8BF800D70C0E /* ComicsError.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		2244E04D274C87A500D70C0E = {
 			isa = PBXGroup;
 			children = (
@@ -138,19 +155,18 @@
 			children = (
 				2244E059274C87A500D70C0E /* AppDelegate.swift */,
 				2244E05B274C87A500D70C0E /* SceneDelegate.swift */,
-				2244E089274C884400D70C0E /* SearchListViewController.swift */,
-				2244E0A1274CB68900D70C0E /* SearchTableViewCell.swift */,
-				2244E09B274C8D5A00D70C0E /* DetailViewController.swift */,
-				2244E09D274C993900D70C0E /* WebViewController.swift */,
-				2244E09F274CA3F700D70C0E /* Environment.swift */,
-				2244E099274C8BF800D70C0E /* ComicsError.swift */,
-				2244E0B1274DA7C100D70C0E /* ErrorDialog.swift */,
-				2244E08C274C88B600D70C0E /* NetworkManager */,
-				2244E08B274C888900D70C0E /* Model */,
 				2244E05F274C87A500D70C0E /* Main.storyboard */,
 				2244E062274C87A600D70C0E /* Assets.xcassets */,
 				2244E064274C87A600D70C0E /* LaunchScreen.storyboard */,
 				2244E067274C87A600D70C0E /* Info.plist */,
+				2244E089274C884400D70C0E /* SearchListViewController.swift */,
+				2244E0A1274CB68900D70C0E /* SearchTableViewCell.swift */,
+				2244E09B274C8D5A00D70C0E /* DetailViewController.swift */,
+				2244E09D274C993900D70C0E /* WebViewController.swift */,
+				220C46B8274EDA0D001161D9 /* Constant */,
+				2244E08C274C88B600D70C0E /* NetworkManager */,
+				2244E08B274C888900D70C0E /* Model */,
+				220C46B7274ED9EF001161D9 /* Extention */,
 			);
 			path = "xkcd-iOS";
 			sourceTree = "<group>";
@@ -334,7 +350,7 @@
 				2244E05A274C87A500D70C0E /* AppDelegate.swift in Sources */,
 				2244E09A274C8BF800D70C0E /* ComicsError.swift in Sources */,
 				2244E094274C89EB00D70C0E /* XkcdComic.swift in Sources */,
-				2244E0B2274DA7C100D70C0E /* ErrorDialog.swift in Sources */,
+				2244E0B2274DA7C100D70C0E /* ErrorDialog+UIViewController.swift in Sources */,
 				2244E090274C897C00D70C0E /* RelevantComicResponse.swift in Sources */,
 				2244E08A274C884400D70C0E /* SearchListViewController.swift in Sources */,
 				2244E0A2274CB68900D70C0E /* SearchTableViewCell.swift in Sources */,
