@@ -12,8 +12,8 @@ Thank you for the opportunity. I enjoyed the coding challenge. xkcd isn't popula
 I created an application using Swift version 5.5.1. 
 I've been a Swift developer for ~6 years, and it's my preferred stack because its's good for rapid iteration and quick prototyping.
 
-## REQUIREMENTS
-* Version 13+
+## SPECIFICATION
+* Xcode 13+
 * Swift 5+
 * iOS 15+
 
@@ -26,7 +26,7 @@ I've selected the MVP features that can be reasonably completed within the deadl
 1. Browsing comics
 2. Searching comics
 3. Viewing comic details and explanation
-4. Favorite comic
+4. Favorite comics
 5. Sending comic
 6. Supporting multiple form factors
 
@@ -37,18 +37,18 @@ A preview of the latest comic is displayed on the home screen with an overlay sh
 
 <img src="https://user-images.githubusercontent.com/5316319/143376201-600b0201-7cbf-4855-992c-7217c27f4ebc.png" width="300" >
 
-I used the [xkcd JSON API](https://xkcd.com/info.0.json) to display the current comic on the home screen. A preview of the comic is displayed in a table view. This is so many comics can be stacked even though each comic has a different aspect ratio. There is an overlay showing the comic ID and title. The user can tap the comic to view the comic.  
+I used the [xkcd JSON API](https://xkcd.com/info.0.json) to display the current comic on the home screen. A preview of the comic is displayed in a table view. Every comic image has a different aspect ratio, so the preview allows them to be evenly stacked. The overlay shows the comic ID and title. The user can tap the comic to view the comic details.  
 
-* **Upcoming feature:** Additional research is required to know what comic details are most important to the user and should be displayed in the comic overlay on the home screen.
-* **Upcoming feature:** The API didn't support paging, so there's no way to view "next" comic in the table yet. 
+* **Upcoming feature:** Additional research is required to know what comic details are most important and should be displayed on the home screen overlay.
+* **Upcoming feature:** The API doesn't support paging, so there's no way to view "next" comic in the table yet. 
 
 
 
 ### 2. Searching comics - Search for a comic by ID or text
 
-A search field is displayed on the home screen above the latest comic
+A search field is displayed on the home screen above the latest comic.
 
-<img src="https://user-images.githubusercontent.com/5316319/143376947-c6fe6384-bb4a-42b4-9d49-047b5b12399c.png" width="200" >
+<img src="https://user-images.githubusercontent.com/5316319/143376947-c6fe6384-bb4a-42b4-9d49-047b5b12399c.png" width="300" >
 
 
 The xkcd search ([relevantxkcd.appspot.com](https://relevantxkcd.appspot.com/)) you provided didn't work (Status 500). I was able to find another search API ([relevant-xkcd.github.io](https://relevant-xkcd.github.io/)) that was working. 
@@ -60,16 +60,16 @@ The xkcd search ([relevantxkcd.appspot.com](https://relevantxkcd.appspot.com/)) 
 
 ### 3. Viewing comic details and explanation - Learn more about the comic
 
-The comic detail page shows the full comic image, title, ID, release date, favorite button, alt text, and explanation link
+The comic detail page shows the full comic image, title, ID, release date, favorite button, alt text, and explanation link.
 
-<img src="https://user-images.githubusercontent.com/5316319/143377252-97194422-bbc2-4a42-9f35-2cbe665aec49.png" width="200" >
+<img src="https://user-images.githubusercontent.com/5316319/143377252-97194422-bbc2-4a42-9f35-2cbe665aec49.png" width="300" >
 
 
 
 The full comic image is displayed on the details page. Some comic aspect ratios are difficult to view on mobile, so I've added the ability to zoom. The alt text is displayed above the comic. The user can tap the Safari icon to view the Explain xkcd wiki page. The user can also tap the favorite button to add to their favorite comics.
 
-* **Upcoming feature:** Additional research is required to know if the user likes the alt text automatically displayed or uses a button to display it.
-* **Upcoming feature:** Testing is required to know if it's obvious for users to view the comic explanation. It may need to be displayed as text instead of the Safari icon.
+* **Upcoming feature:** Additional research is required to know if the user perfers a button to display the alt text.
+* **Upcoming feature:** Testing is required to know if explanation link should be displayed as text instead of the Safari icon.
 
 
 
@@ -93,11 +93,11 @@ The user's favorite comics are displayed by tapping the Favorites icon on the ho
 
 The user can share or copy the URL of the Explain xkcd wiki page.
 
- <img src="https://user-images.githubusercontent.com/5316319/143378153-d437874c-c597-4bda-abbd-dac8c9a5cf5c.png" width="200" > 
+ <img src="https://user-images.githubusercontent.com/5316319/143378153-d437874c-c597-4bda-abbd-dac8c9a5cf5c.png" width="300" > 
 
 Tapping the Share icon will display the UIActivityViewController. This will allow the user to share the URL of the Explain xkcd wiki page. This seems like the best placement for sharing since you are viewing the webpage.
 
-* Upcoming feature: Allow sharing of the xkcd comic page, not only the Explain xkcd wiki page.
+* **Upcoming feature:** Allow sharing of the xkcd comic page, not only the Explain xkcd wiki page.
 
 
 
@@ -134,11 +134,11 @@ I used protocols as composable extensions. For example, to use the `ErrorDialogV
 
 I wrote unit tests for asynchronous functions. For example, I used `MockURLProtocol` to test without a server (see `xkcd_iOSNetworkManagerTests`) and test UserDefaults with Dependency Injection (see `xkcd_iOSFavoriteManagerTests`).
 
-### The project architecture
+### Project architecture
 
-MVVM architecture
+I used MVVM architecture.
 
-### The project structure
+### Project structure
 
  <img src="https://user-images.githubusercontent.com/5316319/143379129-85ab571f-b6c9-4b1a-9990-ea665c889101.png" width="400" > 
 
