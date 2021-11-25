@@ -39,8 +39,9 @@ class NetworkManager {
         var request = URLRequest(url: Environment.searchComicUrl)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        if let keyword = keyword, keyword.isEmpty == false {
-                let post = "search=\(keyword)"
+        if let keyword = keyword, keyword.isEmpty == false,
+           let keywordEncoding = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                let post = "search=\(keywordEncoding)"
                 let postData = post.data(using: String.Encoding.ascii, allowLossyConversion: true)!
                 request.httpBody = postData
             }
